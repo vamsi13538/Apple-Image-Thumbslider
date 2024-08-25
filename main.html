@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Image Thumbslider</title>
+    <link
+    rel="icon"
+    href="https://img.icons8.com/?size=128&id=48112&format=png"
+    type="image/x-icon"
+  />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Bradley Hand, cursive		;
+    font-size: 1.2rem;
+    caret-color: transparent;
+    background-color: darkgray;
+}
+
+.header span{
+    color: darkorchid;
+}
+
+header{
+    width: 100%;
+    height: max-content;
+    padding: 1rem 0rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #F0F0F0;
+}
+
+header h1{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.Container{
+    box-sizing: border-box;
+    margin: 4rem auto;
+    width: 80%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.SliderContainer {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    padding: 0.8rem 0rem;
+    background-color: #FFFFFF;
+}
+
+.SliderContainer .slideImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+.SliderContainer .slideImage img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.ThumbnailContainer{
+    width: 100%;
+    padding: 0.8rem 0rem;
+    background-color: #F0F0F0;
+    border-bottom-left-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+}
+
+.ThumbnailContainer ul{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.ThumbnailContainer ul li{
+    list-style: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+
+.ThumbnailContainer ul li img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li.slideThumbnail:hover{
+    border: 1px solid yellowgreen;
+}
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <header>
+            <h1 class="header">Apple <span>Products</span> Thumbslider</h1>
+        </header>
+        <div class="SliderContainer">
+            <div class="slideImage active"><img src="https://static.vecteezy.com/system/resources/previews/007/201/908/non_2x/monitor-pc-realistic-with-a-blank-screen-on-white-background-isolate-stylish-illustration-eps10-vector.jpg" style="width: 18rem;" alt="No_Img"></div>
+            <div class="slideImage"><img src="https://www.apple.com/v/iphone-15/c/images/overview/contrast/iphone_15pro__ezc4eofw13yq_large_2x.jpg" style="width: 11rem; padding-top: 1.4rem;" alt="No_Img"></div>
+            <div class="slideImage"><img src="https://www.apple.com/v/macbook-air/s/images/overview/performance/compare/model_mba_m3__dgwkvigl8geq_large_2x.jpg" style="width: 18rem; padding-top: 3.8rem;" alt="No_Img"></div>
+            <div class="slideImage"><img src="https://www.apple.com/v/iphone-15/c/images/overview/contrast/iphone_15__dozjxuchowcy_large_2x.jpg" style="width: 11rem; padding-top: 1.4rem;" alt="No_Img"></div>
+            <div class="slideImage"><img src="https://www.apple.com/v/macbook-air/s/images/specs/13-inch/mba_13_display__rz2au27rxgyq_large_2x.jpg" style="width: 18rem; padding-top: 3.6rem;" alt="No_Img"></div>
+        </div>
+        <div class="ThumbnailContainer">
+            <ul>
+                <li class="slideThumbnail" id="slideThumbnail1"><img src="https://static.vecteezy.com/system/resources/previews/007/201/908/non_2x/monitor-pc-realistic-with-a-blank-screen-on-white-background-isolate-stylish-illustration-eps10-vector.jpg" alt="No_Image"></li>
+                <li class="slideThumbnail" id="slideThumbnail2"><img src="https://www.apple.com/v/iphone-15/c/images/overview/contrast/iphone_15pro__ezc4eofw13yq_large_2x.jpg" alt="No_Image"></li>
+                <li class="slideThumbnail" id="slideThumbnail3"><img src="https://www.apple.com/v/macbook-air/s/images/overview/performance/compare/model_mba_m3__dgwkvigl8geq_large_2x.jpg" alt="No_Image"></li>
+                <li class="slideThumbnail" id="slideThumbnail4"><img src="https://www.apple.com/v/iphone-15/c/images/overview/contrast/iphone_15__dozjxuchowcy_large_2x.jpg" alt="No_Image"></li>
+                <li class="slideThumbnail" id="slideThumbnail5"><img src="https://www.apple.com/v/macbook-air/s/images/specs/13-inch/mba_13_display__rz2au27rxgyq_large_2x.jpg" alt="No_Image"></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+    var slideWidth = $('.SliderContainer').width();
+    var slideImages = $('.slideImage');
+    var currentIndex = 0;
+
+    // Hide all images except the first one
+    slideImages.hide();
+    slideImages.eq(currentIndex).show();
+
+    $('.ThumbnailContainer ul li img').on('click', function(e) {
+        var newIndex = $(this).parent().index();
+
+        if (newIndex !== currentIndex) {
+            var direction = (newIndex > currentIndex) ? 'left' : 'right';
+            var currentSlide = slideImages.eq(currentIndex);
+            var newSlide = slideImages.eq(newIndex);
+
+            if (direction === 'left') {
+                newSlide.css({ left: slideWidth }).show();
+                currentSlide.animate({ left: -slideWidth }, 450, function() {
+                    $(this).hide().css({ left: 0 });
+                });
+                newSlide.animate({ left: 0 }, 450);
+            } else {
+                newSlide.css({ left: -slideWidth }).show();
+                currentSlide.animate({ left: slideWidth }, 450, function() {
+                    $(this).hide().css({ left: 0 });
+                });
+                newSlide.animate({ left: 0 }, 450);
+            }
+
+            currentIndex = newIndex;
+        }
+
+        e.preventDefault();
+    });
+});
+
+
+    </script>
+</body>
+</html>
